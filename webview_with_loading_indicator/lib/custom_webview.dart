@@ -4,8 +4,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CustomWebView extends StatefulWidget {
   final String initialUrl;
+  final double? width;
+  final double? height;
 
-  CustomWebView({required this.initialUrl});
+  CustomWebView(
+      {Key? key, this.width, this.height, required this.initialUrl})
+      : super(key: key);
 
   @override
   _CustomWebViewState createState() => _CustomWebViewState();
@@ -17,7 +21,9 @@ class _CustomWebViewState extends State<CustomWebView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return SizedBox(
+    width: widget.width ?? 400,
+      height: widget.height ?? 300,
       child: Stack(
         children: <Widget>[
           WebView(
