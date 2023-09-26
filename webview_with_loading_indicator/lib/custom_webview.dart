@@ -17,11 +17,8 @@ class _CustomWebViewState extends State<CustomWebView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('WebView personnalisé'),
-      ),
-      body: Stack(
+    return SizedBox.expand(
+      child: Stack(
         children: <Widget>[
           WebView(
             initialUrl: widget.initialUrl,
@@ -40,7 +37,7 @@ class _CustomWebViewState extends State<CustomWebView> {
             },
           ),
           if (_isLoading)
-            Center(
+            const Center(
               child: SpinKitCircle(
                 color: Colors.blue, // Couleur de l'indicateur
                 size: 50.0, // Taille de l'indicateur
